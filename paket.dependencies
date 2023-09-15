@@ -1,44 +1,43 @@
 source https://api.nuget.org/v3/index.json
 source https://ci.appveyor.com/nuget/bolero
 storage: none
-framework: netcoreapp3.0, netstandard2.0
 
 nuget FSharp.Core
 nuget Newtonsoft.Json
-nuget Microsoft.AspNetCore prerelease
-nuget Microsoft.AspNetCore.Hosting prerelease
-nuget Microsoft.AspNetCore.Http prerelease
-nuget Microsoft.AspNetCore.Mvc prerelease
-nuget Microsoft.AspNetCore.SignalR prerelease
+nuget Microsoft.AspNetCore 
+nuget Microsoft.AspNetCore.Hosting 
+nuget Microsoft.AspNetCore.Http 
+nuget Microsoft.AspNetCore.Mvc 
+nuget Microsoft.AspNetCore.SignalR 
 nuget Elmish
 
-nuget Blazor.Extensions.Logging prerelease
+nuget Blazor.Extensions.Logging 
 
-nuget Microsoft.Extensions.DependencyModel prerelease
-nuget Microsoft.Extensions.Logging prerelease
+nuget Microsoft.Extensions.DependencyModel 
 nuget System.Runtime.Loader
 
 nuget FSharp.Json
 
 nuget BlazorSignalR prerelease
-nuget Microsoft.AspNetCore.Server.Kestrel prerelease
-nuget Microsoft.AspNetCore.SignalR.Client prerelease
+nuget Microsoft.AspNetCore.Server.Kestrel 
+nuget Microsoft.AspNetCore.SignalR.Client 
 
 #nuget Microsoft.AspNetCore.Blazor.Browser
-nuget Microsoft.AspNetCore.Blazor.Build prerelease
-nuget Microsoft.AspNetCore.Blazor.DevServer
-clitool Microsoft.AspNetCore.Blazor.Cli prerelease
-nuget Bolero > 0.6.0 prerelease
-nuget Bolero.Build > 0.6.0 prerelease
+nuget Microsoft.AspNetCore.Blazor.Build 
+nuget Microsoft.AspNetCore.Components.WebAssembly.DevServer
+nuget Bolero prerelease
+nuget Bolero.Build prerelease
 
 nuget Argu
-nuget FcsWatch.Core >= 0.7.2
-nuget FcsWatch.Binary >= 0.7.2
+nuget FcsWatch.Core
+nuget FcsWatch.Binary
 
 nuget FsCheck.Xunit
 nuget xunit
 nuget xunit.runner.console
 nuget xunit.runner.visualstudio
+
+
 
 #nuget Elmish.HotReload
 
@@ -46,12 +45,9 @@ nuget Dotnet.ProjInfo
 
 
 # Temporary Prerelease
-nuget Microsoft.AspNetCore.Http.Features prerelease
-nuget Microsoft.Extensions.Configuration prerelease
-nuget Microsoft.Extensions.FileProviders.Physical prerelease
-nuget Microsoft.Extensions.Logging.Console prerelease
-nuget Microsoft.Extensions.Options prerelease
-nuget System.Runtime.CompilerServices.Unsafe prerelease
-
-# Fix FCSWatch issue
-nuget FSharp.Compiler.Service ~> 27.0
+# nuget Microsoft.AspNetCore.Http.Features prerelease
+# nuget Microsoft.Extensions.Configuration prerelease
+# nuget Microsoft.Extensions.FileProviders.Physical prerelease
+# nuget Microsoft.Extensions.Logging.Console prerelease
+# nuget Microsoft.Extensions.Options prerelease
+# nuget System.Runtime.CompilerServices.Unsafe prerelease

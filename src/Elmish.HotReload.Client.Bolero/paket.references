@@ -1,6 +1,6 @@
 FSharp.Core
 Microsoft.AspNetCore.Blazor.Build
-Microsoft.AspNetCore.Blazor.DevServer
+Microsoft.AspNetCore.Components.WebAssembly.DevServer
 Microsoft.Extensions.Logging
 Blazor.Extensions.Logging
 
