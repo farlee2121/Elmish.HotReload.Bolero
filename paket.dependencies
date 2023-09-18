@@ -23,7 +23,8 @@ nuget Microsoft.AspNetCore.Server.Kestrel
 nuget Microsoft.AspNetCore.SignalR.Client 
 
 #nuget Microsoft.AspNetCore.Blazor.Browser
-nuget Microsoft.AspNetCore.Blazor.Build 
+#nuget Microsoft.AspNetCore.Blazor.Build 
+nuget Microsoft.AspNetCore.Components.WebAssembly
 nuget Microsoft.AspNetCore.Components.WebAssembly.DevServer
 nuget Bolero prerelease
 nuget Bolero.Build prerelease
@@ -42,12 +43,3 @@ nuget xunit.runner.visualstudio
 #nuget Elmish.HotReload
 
 nuget Dotnet.ProjInfo
-
-
-# Temporary Prerelease
-# nuget Microsoft.AspNetCore.Http.Features prerelease
-# nuget Microsoft.Extensions.Configuration prerelease
-# nuget Microsoft.Extensions.FileProviders.Physical prerelease
-# nuget Microsoft.Extensions.Logging.Console prerelease
-# nuget Microsoft.Extensions.Options prerelease
-# nuget System.Runtime.CompilerServices.Unsafe prerelease

@@ -10,9 +10,7 @@ open Microsoft.AspNetCore.SignalR.Client
 open Microsoft.Extensions.Logging
 open Microsoft.Extensions.DependencyInjection
 open Microsoft.FSharp.Quotations
-open Microsoft.JSInterop
 open System
-open System.Reflection
 
 
 let getBrowserConsoleLoggerProvider jsRuntime =
@@ -70,17 +68,19 @@ let startConnection (log : ILogger) jsRuntime navigationManager reload =
     connect log hub
 
 module Program =
+
     let withHotReload log jsRuntime navigationManager
         (viewExpr : Expr<'model -> ('msg -> unit) -> 'view>)
         (updateExpr : Expr<'msg -> 'model -> 'model * Cmd<'msg>>)
         (program : Program<'arg, 'model, 'msg, 'view>) =
+
 
         let log =
             match log with
             | Some l -> l
             | None -> (new LoggerFactory()).CreateLogger() :> ILogger
 
-        let updater = ProgramUpdater(log, program.init, program.update, program.view)
+        let updater = ProgramUpdater(log, Program.init program, Program.update program, Program.view program)
 
         let viewResolverInfo = Resolve.resolveView viewExpr
         let updateResolverInfo = Resolve.resolveUpdate updateExpr
@@ -89,16 +89,29 @@ module Program =
 
         (startConnection log jsRuntime navigationManager reload) |> Async.Start
 
-        let erasedProg : Program<'arg, obj, obj, 'view> =
-            {
-                init = updater.Init
-                update = updater.Update
-                view = updater.View
-                setState = fun model -> updater.View model >> ignore
-                subscribe = fun _ -> Cmd.none
-                onError = program.onError
-            }
 
+
+        let erasedProg : Program<'arg, obj, obj, 'view> =
+            let mapInit _ = updater.Init
+            let mapUpdate _ = updater.Update
+            let mapView _ = updater.View
+            let mapSetState _ = (fun model -> updater.View model >> ignore)
+            let mapSubscribe (f: ('model -> Sub<'msg>)): (obj -> Sub<obj>) =
+                unbox<'model> 
+                >> f
+                >> Sub.map "" box
+            let mapTermination (typedTermination: ('msg -> bool)*('model -> unit)) : (obj -> bool)*(obj ->unit)= 
+                let terminateMsg,terminateModel = typedTermination
+                (unbox<'msg> >> terminateMsg), (unbox<'model> >> terminateModel)
+
+            program
+            |> Program.map 
+                mapInit
+                mapUpdate
+                mapView
+                mapSetState
+                mapSubscribe
+                mapTermination
 
 
         erasedProg
