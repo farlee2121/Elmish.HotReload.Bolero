@@ -8,7 +8,7 @@ open Elmish.HotReload.Bolero.Core
 open HotReload.Elmish
 open Microsoft.Extensions.Logging
 
-type Templ = Template<"main.html">
+type Templ = Template<"wwwroot/main.html">
 
 let view model dispatch =
     Templ()

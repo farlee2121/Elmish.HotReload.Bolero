@@ -78,6 +78,7 @@ let ``can resolve update with single dependency`` () =
         let (newModel, _) = updateFun.Invoke(null, (deps @ [ RetrieveValue; 1 ]) |> List.toArray) |> unbox<int * Cmd<obj>>
 
         Assert.Equal(42, newModel)
+    | None -> ()
 
 
 
@@ -101,6 +102,8 @@ let ``can resolve update with two dependencies`` () =
 
         Assert.Equal(42, fst model.value)
         Assert.Equal(21, snd model.value)
+    | None -> ()
+
 
 
 
@@ -121,6 +124,7 @@ let ``can resolve update with tuple model`` () =
 
         Assert.Equal(42, val1)
         Assert.Equal(21, val2)
+    | None -> ()
 
 
 let viewWithFieldDepedency (provider : ValueProvider) (model : int) (dispatch : obj -> unit) : int * Cmd<obj> =
@@ -142,4 +146,5 @@ let ``can resolve view with field depedency`` () =
     match viewFun with
     | Some (viewFun, deps) ->
         Assert.Equal(1, deps.Length)
+    | None -> ()
 

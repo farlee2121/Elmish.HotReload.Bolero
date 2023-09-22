@@ -183,23 +183,19 @@ NUGET
       Microsoft.AspNetCore.Components.Web (>= 3.1.0-preview3.19555.2) - restriction: >= netstandard2.0
       Microsoft.Extensions.Options (>= 3.1.0-preview3.19553.2) - restriction: >= netstandard2.0
       Mono.WebAssembly.Interop (>= 3.1.0-preview3.19553.2) - restriction: >= netstandard2.0
-    Microsoft.AspNetCore.Blazor.Analyzers (0.7)
-    Microsoft.AspNetCore.Blazor.Build (0.7)
-      Microsoft.AspNetCore.Blazor.Analyzers (>= 0.7)
-      Microsoft.AspNetCore.Razor.Design (>= 2.1.2)
     Microsoft.AspNetCore.Components (7.0.11) - restriction: >= net7.0
       Microsoft.AspNetCore.Authorization (>= 7.0.11) - restriction: >= net7.0
       Microsoft.AspNetCore.Components.Analyzers (>= 7.0.11) - restriction: >= net7.0
     Microsoft.AspNetCore.Components.Analyzers (7.0.11) - restriction: >= net7.0
     Microsoft.AspNetCore.Components.Forms (7.0.11) - restriction: >= net7.0
       Microsoft.AspNetCore.Components (>= 7.0.11) - restriction: >= net7.0
-    Microsoft.AspNetCore.Components.Web (7.0.11) - restriction: || (&& (>= net6.0) (< net7.0)) (>= netstandard2.0)
+    Microsoft.AspNetCore.Components.Web (7.0.11) - restriction: >= netstandard2.0
       Microsoft.AspNetCore.Components (>= 7.0.11) - restriction: >= net7.0
       Microsoft.AspNetCore.Components.Forms (>= 7.0.11) - restriction: >= net7.0
       Microsoft.Extensions.DependencyInjection (>= 7.0) - restriction: >= net7.0
       Microsoft.JSInterop (>= 7.0.11) - restriction: >= net7.0
       System.IO.Pipelines (>= 7.0) - restriction: >= net7.0
-    Microsoft.AspNetCore.Components.WebAssembly (6.0.22) - restriction: && (>= net6.0) (< net7.0)
+    Microsoft.AspNetCore.Components.WebAssembly (6.0.22)
       Microsoft.AspNetCore.Components.Web (>= 6.0.22) - restriction: >= net6.0
       Microsoft.Extensions.Configuration.Binder (>= 6.0) - restriction: >= net6.0
       Microsoft.Extensions.Configuration.Json (>= 6.0) - restriction: >= net6.0
@@ -399,7 +395,7 @@ NUGET
       Newtonsoft.Json.Bson (>= 1.0.1) - restriction: >= netstandard2.0
     Microsoft.AspNetCore.Razor (2.2) - restriction: >= netstandard2.0
       Microsoft.AspNetCore.Html.Abstractions (>= 2.2) - restriction: >= netstandard2.0
-    Microsoft.AspNetCore.Razor.Design (2.2)
+    Microsoft.AspNetCore.Razor.Design (2.2) - restriction: >= netstandard2.0
     Microsoft.AspNetCore.Razor.Language (6.0.22) - restriction: >= netstandard2.0
     Microsoft.AspNetCore.Razor.Runtime (2.2) - restriction: >= netstandard2.0
       Microsoft.AspNetCore.Html.Abstractions (>= 2.2) - restriction: >= netstandard2.0
@@ -553,8 +549,7 @@ NUGET
       Microsoft.Extensions.Primitives (>= 7.0) - restriction: || (>= net462) (>= netstandard2.0)
     Microsoft.Extensions.Configuration.Abstractions (7.0) - restriction: >= netstandard2.0
       Microsoft.Extensions.Primitives (>= 7.0) - restriction: || (>= net462) (>= netstandard2.0)
-      System.ValueTuple (>= 4.5) - restriction: >= net462
-    Microsoft.Extensions.Configuration.Binder (7.0.4) - restriction: || (&& (>= net6.0) (< net7.0)) (>= netstandard2.0)
+    Microsoft.Extensions.Configuration.Binder (7.0.4) - restriction: >= netstandard2.0
       Microsoft.Extensions.Configuration.Abstractions (>= 7.0) - restriction: || (>= net462) (>= netstandard2.0)
     Microsoft.Extensions.Configuration.CommandLine (7.0) - restriction: >= netstandard2.0
       Microsoft.Extensions.Configuration (>= 7.0) - restriction: || (>= net462) (>= netstandard2.0)
@@ -568,7 +563,7 @@ NUGET
       Microsoft.Extensions.FileProviders.Abstractions (>= 7.0) - restriction: || (>= net462) (>= netstandard2.0)
       Microsoft.Extensions.FileProviders.Physical (>= 7.0) - restriction: || (>= net462) (>= netstandard2.0)
       Microsoft.Extensions.Primitives (>= 7.0) - restriction: || (>= net462) (>= netstandard2.0)
-    Microsoft.Extensions.Configuration.Json (7.0) - restriction: || (&& (>= net6.0) (< net7.0)) (>= netstandard2.0)
+    Microsoft.Extensions.Configuration.Json (7.0) - restriction: >= netstandard2.0
       Microsoft.Extensions.Configuration (>= 7.0) - restriction: || (>= net462) (>= netstandard2.0)
       Microsoft.Extensions.Configuration.Abstractions (>= 7.0) - restriction: || (>= net462) (>= netstandard2.0)
       Microsoft.Extensions.Configuration.FileExtensions (>= 7.0) - restriction: || (>= net462) (>= netstandard2.0)
@@ -619,7 +614,7 @@ NUGET
       Microsoft.Extensions.Logging.Abstractions (>= 7.0.1) - restriction: || (>= net462) (>= netstandard2.0)
       Microsoft.Extensions.Options (>= 7.0.1) - restriction: || (>= net462) (>= netstandard2.0)
     Microsoft.Extensions.Localization.Abstractions (7.0.11) - restriction: >= netstandard2.0
-    Microsoft.Extensions.Logging (7.0) - restriction: || (>= net462) (&& (>= net6.0) (< net7.0)) (>= netstandard2.0)
+    Microsoft.Extensions.Logging (7.0) - restriction: || (>= net462) (>= netstandard2.0)
       Microsoft.Extensions.DependencyInjection (>= 7.0) - restriction: || (>= net462) (>= netstandard2.0)
       Microsoft.Extensions.DependencyInjection.Abstractions (>= 7.0) - restriction: || (>= net462) (>= netstandard2.0)
       Microsoft.Extensions.Logging.Abstractions (>= 7.0) - restriction: || (>= net462) (>= netstandard2.0)
@@ -685,7 +680,8 @@ NUGET
       System.Buffers (>= 4.5.1) - restriction: >= net472
       System.Memory (>= 4.5.4) - restriction: >= net472
     Microsoft.JSInterop (7.0.11) - restriction: >= netstandard2.0
-    Microsoft.JSInterop.WebAssembly (7.0.11) - restriction: && (>= net6.0) (< net7.0)
+    Microsoft.JSInterop.WebAssembly (7.0.11) - restriction: >= net6.0
+      Microsoft.JSInterop (>= 7.0.11) - restriction: >= net7.0
     Microsoft.Net.Http.Headers (2.2.8) - restriction: >= netstandard2.0
       Microsoft.Extensions.Primitives (>= 2.2) - restriction: >= netstandard2.0
       System.Buffers (>= 4.5) - restriction: >= netstandard2.0

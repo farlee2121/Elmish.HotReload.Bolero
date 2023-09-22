@@ -69,10 +69,15 @@ let startConnection (log : ILogger) jsRuntime navigationManager reload =
 
 module Program =
 
-    let withHotReload log jsRuntime navigationManager
+
+    let withHotReload 
+        (log:ILogger option) 
+        (jsRuntime: Microsoft.JSInterop.IJSRuntime) 
+        (navigationManager: Microsoft.AspNetCore.Components.NavigationManager)
         (viewExpr : Expr<'model -> ('msg -> unit) -> 'view>)
         (updateExpr : Expr<'msg -> 'model -> 'model * Cmd<'msg>>)
-        (program : Program<'arg, 'model, 'msg, 'view>) =
+        (program : Program<'arg, 'model, 'msg, 'view>)
+        : Program<'arg, obj, obj, 'view> =
 
 
         let log =

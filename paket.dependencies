@@ -22,12 +22,11 @@ nuget BlazorSignalR prerelease
 nuget Microsoft.AspNetCore.Server.Kestrel 
 nuget Microsoft.AspNetCore.SignalR.Client 
 
-#nuget Microsoft.AspNetCore.Blazor.Browser
-#nuget Microsoft.AspNetCore.Blazor.Build 
+
 nuget Microsoft.AspNetCore.Components.WebAssembly
 nuget Microsoft.AspNetCore.Components.WebAssembly.DevServer
-nuget Bolero prerelease
-nuget Bolero.Build prerelease
+nuget Bolero >= 0.22.0
+nuget Bolero.Build >= 0.22.0
 
 nuget Argu
 nuget FcsWatch.Core
