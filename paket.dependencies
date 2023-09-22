@@ -1,6 +1,7 @@
 source https://api.nuget.org/v3/index.json
 source https://ci.appveyor.com/nuget/bolero
 storage: none
+framework: net7.0
 
 nuget FSharp.Core
 nuget Newtonsoft.Json
@@ -23,7 +24,6 @@ nuget Microsoft.AspNetCore.Server.Kestrel
 nuget Microsoft.AspNetCore.SignalR.Client 
 
 
-nuget Microsoft.AspNetCore.Components.WebAssembly
 nuget Microsoft.AspNetCore.Components.WebAssembly.DevServer
 nuget Bolero >= 0.22.0
 nuget Bolero.Build >= 0.22.0
