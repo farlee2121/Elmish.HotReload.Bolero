@@ -24,22 +24,22 @@ let createLogger context () =
         .CreateLogger(context)
 
 type MyApp () =
-#if !DEBUG
+// #if !DEBUG
     inherit ProgramComponent<Model, Message> ()
-#else
-    inherit ProgramComponent<obj, obj>()
-#endif
+// #else
+//     inherit ProgramComponent<obj, obj>()
+// #endif
 
-    member this.GetLogger () = 
-        this.Services.GetService(typeof<ILogger<MyApp>>) :?> ILogger
+    // member this.GetLogger () = 
+    //     this.Services.GetService(typeof<ILogger<MyApp>>) :?> ILogger
 
 
     override this.Program =
-        let log = this.GetLogger()
+        let log = None//this.GetLogger() |> Some
 
         Program.mkProgram (fun _ -> initModel, Cmd.none) update view
             |> Program.withErrorHandler (fun (msg, exn) -> printfn "Error: %s\n\n%A" msg exn)
-#if DEBUG
-            |> Program.withHotReload (Some log) this.JSRuntime this.NavigationManager <@ view @> <@ update @>
-#endif
+// #if DEBUG
+//             |> Program.withHotReload log this.JSRuntime this.NavigationManager <@ view @> <@ update @>
+// #endif
 
