@@ -16,7 +16,7 @@ type ResolverInfo =
 let makeFailMessage f = sprintf "Failed to resolve %A\n" f
 
 
-let rec eval = function
+let rec private eval = function
     | Value (v, t) -> v
     | Call (None, mi, args) -> mi.Invoke (null, evalAll args)
     | Call (Some e, mi, args) -> mi.Invoke(eval e, evalAll args)
@@ -26,7 +26,7 @@ let rec eval = function
         | None -> fieldInfo.GetValue(null)
     | arg -> failwithf "Cannot evaluate %A" arg
 
-and evalAll args = List.map eval args |> List.toArray
+and private evalAll args = List.map eval args |> List.toArray
 
 let rec resolve<'expected> = function
     | Lambdas (_, Call (None, methodInfo, _))

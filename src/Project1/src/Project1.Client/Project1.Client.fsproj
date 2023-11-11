@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="hmr.fs" />
+    <Compile Include="Main.fs" />
+    <Compile Include="Startup.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Bolero" Version="0.*" />
+    <PackageReference Include="Bolero.Build" Version="0.*" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.*" />
+    <PackageReference Include="System.Net.Http.Json" Version="7.0.*" />
+	  <PackageReference Include="Blazored.SessionStorage" Version="2.4.0" />
+	  <PackageReference Include="Blazored.LocalStorage" Version="4.4.0" />
+	  <PackageReference Include="FSharp.JsonSerializer" Version="0.0.3" />
+
+  </ItemGroup>
+</Project>

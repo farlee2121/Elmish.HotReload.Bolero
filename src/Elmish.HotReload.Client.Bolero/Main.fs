@@ -39,7 +39,11 @@ type MyApp () =
 
         Program.mkProgram (fun _ -> initModel, Cmd.none) update view
             |> Program.withErrorHandler (fun (msg, exn) -> printfn "Error: %s\n\n%A" msg exn)
+            |> Program.withTermination 
+                (fun msg -> 
+                    match msg with | Decrement -> true | _ -> false) 
+                (fun model -> System.Console.WriteLine("terminating") )
 // #if DEBUG
-//             |> Program.withHotReload log this.JSRuntime this.NavigationManager <@ view @> <@ update @>
+             //|> Program.withHotReload log this.JSRuntime this.NavigationManager <@ view @> <@ update @>
 // #endif
 
